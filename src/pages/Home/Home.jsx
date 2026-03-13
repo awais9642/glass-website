@@ -8,7 +8,7 @@ import heroImage from "../../assets/Glass-partiton-office-10.jpeg";
 import useCountUp from '../../hooks/useCountUp';
 import shopFront from '../../assets/Glass-Shop-Front.jpeg'
 import glassOfficePartition from '../../assets/About-Page-2.jpeg'
-import showerGlassPartition from '../../assets/shower-glass-partition.jpeg'
+import showerGlassPartition from "../../assets/shower-glass-partition.jpeg"
 import glassPartitionDoors from '../../assets/Glass-Partition-Doors.jpeg'
 import outdoorPergolaStructure from '../../assets/Outdoor-Pergola-Structure.jpeg'
 import aluminiumUPVCDoorsPartition from '../../assets/Aluminium-UPVC.png'
