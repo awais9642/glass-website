@@ -5,7 +5,7 @@ import Footer from '../../components/Footer/Footer';
 import SectionTag from '../../components/SectionTag/SectionTag';
 import shopFront from '../../assets/Glass-Shop-Front.jpeg'
 import glassOfficePartition from '../../assets/About-Page-2.jpeg'
-import showerGlassPartition from '../../assets/shower-Glass-Partition.jpeg'
+import showerGlassPartition from '../../assets/shower-glass-partition.jpeg'
 import glassPartitionDoors from '../../assets/Glass-Partition-Doors.jpeg'
 import outdoorPergolaStructure from '../../assets/Outdoor-Pergola-Structure.jpeg'
 import aluminiumUPVCDoorsPartition from '../../assets/Aluminium-UPVC.png'
