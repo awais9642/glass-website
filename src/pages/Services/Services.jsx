@@ -10,6 +10,7 @@ import glassPartitionDoors from '../../assets/Glass-Partition-Doors.jpeg'
 import outdoorPergolaStructure from '../../assets/Outdoor-Pergola-Structure.jpeg'
 import aluminiumUPVCDoorsPartition from '../../assets/Aluminium-UPVC.png'
 import glassStaircaseFencing from '../../assets/Glass-Staircase-Fencing.jpeg'
+import heroImage from '../../assets/Home-Image.jpeg';
 
 
 
@@ -168,6 +169,7 @@ const Services = () => {
     <main>
       {/* Hero */}
       <section className={styles.svcHero}>
+         {/* <img src={heroImage} alt="" className={styles.heroBgImg} /> */}
         <div className={styles.heroContent}>
           <SectionTag label="Our Services" />
           <h1 className={styles.heroTitle}>

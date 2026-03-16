@@ -173,7 +173,7 @@
 
   .navLinks {
     position: fixed;
-    /*top: 78px; */
+    top: 4px;
     left: 0;
     right: 0;
     background: var(--white);
