@@ -164,6 +164,7 @@
 @media (max-width: 900px) {
   .hamburger {
     display: flex;
+    padding-right: 15px;
   }
 
   .navCta {
@@ -172,7 +173,7 @@
 
   .navLinks {
     position: fixed;
-    top: 78px;
+    /*top: 78px; */
     left: 0;
     right: 0;
     background: var(--white);

@@ -6,6 +6,7 @@
   align-items: center;
   overflow: hidden;
   background: linear-gradient(135deg, #F0FBEE 0%, #FFFFFF 50%, #E8F9E5 100%);
+  width: 100%;
   
 }
 
@@ -80,6 +81,7 @@
   padding: 8px 20px;
   border-radius: 30px;
   margin-bottom: 1.8rem;
+  margin-right: 1.5rem;
   animation: slideRight 0.8s 0.2s ease both;
 }
 
@@ -143,6 +145,7 @@
   gap: 1.4rem;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 30px;
   animation: slideRight 0.8s 0.85s ease both;
 }
 
@@ -165,11 +168,13 @@
 }
 
 .statItem {
-  padding: 1.6rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  border-right: 1px solid var(--light-gray);
+     padding: 1.6rem 2rem;
+    padding-right: 0px;
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
 }
 
 .statItem:last-child { border-right: none; }
@@ -347,31 +352,31 @@
 
 .whyBadge {
   position: absolute;
-  bottom: 28px;
-  right: -22px;
+  bottom: 12px;
+  /* right: -22px; */
   background: var(--white);
   border-radius: 16px;
-  padding: 1.3rem 1.8rem;
+  padding: 0.5rem 0.5rem;
   box-shadow: 0 10px 40px rgba(61,190,41,0.2);
-  border: 2px solid var(--green-pale);
+  border: 1px solid var(--green-pale);
   text-align: center;
 }
 
 .bn {
   font-family: var(--font-heading);
   font-weight: 900;
-  font-size: 2.3rem;
+  font-size: 2rem;
   color: var(--green);
   line-height: 1;
 }
 
 .bl {
-  font-size: 0.68rem;
+  /* font-size: 0.68rem; */
   font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
+  /* letter-spacing: 1.5px;
+  text-transform: uppercase; */
   color: var(--text-light);
-  margin-top: 3px;
+  /* margin-top: 3px; */
 }
 
 .whyCorner {
