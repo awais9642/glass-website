@@ -1,5 +1,6 @@
 
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import styles from './Home.module.css';
 import Footer from '../../components/Footer/Footer';
 import SectionTag from '../../components/SectionTag/SectionTag';
@@ -180,19 +181,75 @@ const StatItem = ({ icon, num, suffix, display, label }) => {
     );
 };
 
-const Home = () => {
-    const handleSubmit = (e) => {
+// const Home = () => {
+//     const handleSubmit = (e) => {
+//         e.preventDefault();
+//         const btn = e.target.querySelector('button[type="submit"]');
+//         btn.textContent = '✅ Sent! We\'ll contact you soon.';
+//         btn.style.background = 'linear-gradient(135deg, #2A9E18, #1E7812)';
+//         btn.disabled = true;
+//         setTimeout(() => {
+//             btn.textContent = 'Send Message';
+//             btn.style.background = '';
+//             btn.disabled = false;
+//             e.target.reset();
+//         }, 4000);
+//     };
+
+    const Home = () => {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+    });
+    const [submitted, setSubmitted] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setError('');
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const btn = e.target.querySelector('button[type="submit"]');
-        btn.textContent = '✅ Sent! We\'ll contact you soon.';
-        btn.style.background = 'linear-gradient(135deg, #2A9E18, #1E7812)';
-        btn.disabled = true;
-        setTimeout(() => {
-            btn.textContent = 'Send Message';
-            btn.style.background = '';
-            btn.disabled = false;
-            e.target.reset();
-        }, 4000);
+        setLoading(true);
+        setError('');
+        console.log('📤 Sending data:', formData); // ADD THIS LINE
+
+        try {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+            console.log('📥 Backend response:', data);
+
+            if (response.ok) {
+                setSubmitted(true);
+                console.log('✅ Contact saved:', data.id);
+                
+                // Reset form after 5 seconds
+                setTimeout(() => {
+                    setSubmitted(false);
+                    setFormData({ name: '', email: '', phone: '', message: '' });
+                }, 5000);
+            } else {
+                console.error('❌ Backend error:', data.error);
+                setError(data.error || 'Failed to submit form. Please try again.');
+            }
+        } catch (error) {
+            
+            console.error('❌ Error submitting form:', error);
+            setError('Failed to submit form. Please check your connection and try again.');
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -382,34 +439,95 @@ const Home = () => {
                             </div>
                         </div>
 
-                        {/* Form */}
-                        <div className={styles.cformCard}>
-                            <h3>Send Us a Message</h3>
-                            <p>Fill in the form and we'll get back to you with a tailored quote.</p>
-                            <form onSubmit={handleSubmit} className={styles.form}>
-                                <div className={styles.fRow}>
-                                    <div className={styles.fGrp}>
-                                        <label>Full Name</label>
-                                        <input type="text" placeholder="Your name" required />
-                                    </div>
-                                    <div className={styles.fGrp}>
-                                        <label>Email</label>
-                                        <input type="email" placeholder="your@email.com" required />
-                                    </div>
-                                </div>
-                                <div className={styles.fGrp}>
-                                    <label>Phone Number</label>
-                                    <input type="tel" placeholder="+971 XX XXX XXXX" />
-                                </div>
-                                <div className={styles.fGrp}>
-                                    <label>Message</label>
-                                    <textarea placeholder="Tell us about your project..." />
-                                </div>
-                                <button type="submit" className={`${styles.btnGreen} ${styles.fSubmit}`}>
-                                    Send Message
-                                </button>
-                            </form>
-                        </div>
+                       {/* Form */}
+<div className={styles.cformCard}>
+    <h3>Send Us a Message</h3>
+    <p>Fill in the form and we'll get back to you with a tailored quote.</p>
+
+    {submitted ? (
+        <div style={{
+            backgroundColor: '#f0fdf4',
+            color: '#166534',
+            padding: '20px',
+            borderRadius: '8px',
+            border: '1px solid #bbf7d0',
+            textAlign: 'center'
+        }}>
+            <div style={{ fontSize: '24px', marginBottom: '8px' }}>✅</div>
+            <strong>Message Sent Successfully!</strong>
+            <p>Thank you for reaching out. Our team will contact you within 24 hours.</p>
+        </div>
+    ) : (
+        <form onSubmit={handleSubmit} className={styles.form}>
+            {/* Error Message Display */}
+            {error && (
+                <div style={{
+                    backgroundColor: '#fee',
+                    color: '#c33',
+                    padding: '12px',
+                    borderRadius: '4px',
+                    marginBottom: '16px',
+                    border: '1px solid #fcc'
+                }}>
+                    ⚠️ {error}
+                </div>
+            )}
+
+            <div className={styles.fRow}>
+                <div className={styles.fGrp}>
+                    <label>Full Name</label>
+                    <input 
+                        type="text" 
+                        name="name"
+                        placeholder="Your name" 
+                        value={formData.name}
+                        onChange={handleChange}
+                        required 
+                    />
+                </div>
+                <div className={styles.fGrp}>
+                    <label>Email</label>
+                    <input 
+                        type="email" 
+                        name="email"
+                        placeholder="your@email.com" 
+                        value={formData.email}
+                        onChange={handleChange}
+                        required 
+                    />
+                </div>
+            </div>
+            <div className={styles.fGrp}>
+                <label>Phone Number</label>
+                <input 
+                    type="tel" 
+                    name="phone"
+                    placeholder="+971 XX XXX XXXX" 
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <div className={styles.fGrp}>
+                <label>Message</label>
+                <textarea 
+                    name="message"
+                    placeholder="Tell us about your project..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                />
+            </div>
+            <button 
+                type="submit" 
+                className={`${styles.btnGreen} ${styles.fSubmit}`}
+                disabled={loading}
+            >
+                {loading ? 'Sending...' : 'Send Message'}
+            </button>
+        </form>
+    )}
+</div>
                     </div>
                 </div>
             </section>
