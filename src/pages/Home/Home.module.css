@@ -536,6 +536,17 @@
   z-index: 1;
 }
 
+.ciItem.whatsapp {
+  flex-wrap: wrap;
+}
+
+.ciBodyWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+}
+
 .ciIco {
   width: 36px;
   height: 36px;

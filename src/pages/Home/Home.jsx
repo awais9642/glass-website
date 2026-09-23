@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styles from './Home.module.css';
 import Footer from '../../components/Footer/Footer';
 import SectionTag from '../../components/SectionTag/SectionTag';
-import { Briefcase, Award, MapPin, ShieldCheck,Target, Settings, RefreshCw, MapPinned } from 'lucide-react';
+import { Briefcase, Award, MapPin, ShieldCheck, Target, Settings, RefreshCw, MapPinned } from 'lucide-react';
 import heroImage from "../../assets/Glass-partiton-office-10.jpeg";
 import useCountUp from '../../hooks/useCountUp';
 import shopFront from '../../assets/Glass-Shop-Front.jpeg'
@@ -19,132 +19,132 @@ import whyChooseUsImage from '../../assets/Home-Image.jpeg'
 
 
 const servicesList = [
-  {
-    id: '01',
-    title: 'Office Glass Partition',
-    subtitle: 'Glass Partitions',
-    image: glassOfficePartition,
-    bg: 'white',
-    reverse: false,
-    desc1: 'Create open, light-filled workspaces with our premium office glass partition systems in Dubai. Ideal for corporate offices, co-working spaces, and commercial fit-outs — our partitions maximize natural light while maintaining acoustic privacy.',
-    desc2: 'We supply and install frameless glass partitions, aluminium-framed systems, and glass office dividers across Dubai and the UAE. All glass is toughened and tempered to meet UAE safety standards, with same-week installation available.',
-    features: [
-      'Frameless & framed glass office partitions',
-      'Floor-to-ceiling & demountable systems',
-      'Acoustic & soundproof glass options',
-      'Frosted, tinted, clear & smart glass',
-      'Custom sizing & premium hardware',
-      'UAE building code compliant',
-    ],
-  },
-  {
-    id: '02',
-    title: 'Glass Shop Front',
-    subtitle: 'Shop Front Glass',
-    image: shopFront,
-    bg: 'offwhite',
-    reverse: true,
-    desc1: 'Make a powerful first impression with a modern glass shop front that attracts customers and elevates your brand. We design and install commercial glass storefronts for retail shops, showrooms, restaurants, and business entrances across Dubai.',
-    desc2: 'Our shop front glass solutions use high-strength tempered safety glass with aluminium or frameless systems — built to withstand Dubai\'s climate while keeping your interior cool, visible, and secure. Fully customizable with automatic sliding doors.',
-    features: [
-      'Frameless & aluminium shop front systems',
-      'Automatic & manual sliding glass doors',
-      'Toughened safety & security glass',
-      'UV-resistant & heat-reflective glass',
-      'Brand-matched powder coat finishes',
-      'Retail, restaurant & showroom fit-outs',
-    ],
-  },
-  {
-    id: '03',
-    title: 'Shower Glass Partition',
-    subtitle: 'Shower Enclosures',
-    image: showerGlassPartition,
-    bg: 'white',
-    reverse: false,
-    desc1: 'Upgrade your bathroom with a sleek, frameless shower glass partition that combines luxury aesthetics with practical waterproofing. Our shower enclosures are a top choice for villas, hotels, and apartments in Dubai seeking a modern, spa-like finish.',
-    desc2: 'We fabricate and install frameless shower screens, semi-frameless enclosures, and fixed shower panels using 8mm–12mm toughened safety glass. All fittings are corrosion-resistant and certified for wet area use — fitted perfectly to your bathroom dimensions.',
-    features: [
-      'Frameless & semi-frameless shower screens',
-      '8mm & 12mm toughened safety glass',
-      'Walk-in, pivot & sliding door options',
-      'Anti-limescale easy-clean coating',
-      'Corrosion-resistant chrome & matte fittings',
-      'Custom fit for any bathroom layout',
-    ],
-  },
-  {
-    id: '04',
-    title: 'Glass Partition & Doors',
-    subtitle: 'Interior Glass Doors',
-    image: glassPartitionDoors,
-    bg: 'white',
-    reverse: true,
-    desc1: 'Divide and define interior spaces beautifully with our glass partition walls and glass doors for homes and commercial properties. Perfect for living rooms, home offices, hotel lobbies, and retail interiors — adding elegance without blocking light.',
-    desc2: 'From sliding glass room dividers to full-height glass walls with built-in doors, we handle design, fabrication, and installation across the UAE. Choose from clear, frosted, patterned, or digitally printed glass to match any interior style.',
-    features: [
-      'Sliding, pivot & hinged glass doors',
-      'Full-height glass partition walls',
-      'Frosted, patterned & printed glass',
-      'Aluminium, stainless steel & frameless',
-      'Residential & commercial interiors',
-      'Made-to-measure for any space',
-    ],
-  },
-  {
-    id: '05',
-    title: 'Glass Staircase Railing',
-    subtitle: 'Glass Railings',
-    image: glassStaircaseFencing,
-    bg: 'white',
-    reverse: false,
-    desc1: 'Transform your staircase into a striking architectural feature with frameless glass railings. Our glass balustrades and staircase railings are in high demand for Dubai villas, duplexes, and luxury apartments — delivering safety with sophisticated style.',
-    desc2: 'We install frameless glass balustrades, stainless steel post systems, and top-rail glass fencing for both indoor and outdoor staircases. All glass is 12mm–15mm toughened and laminated, engineered to meet Dubai Municipality safety codes.',
-    features: [
-      'Frameless & post-mounted glass balustrades',
-      '12mm–15mm laminated toughened glass',
-      'Indoor & outdoor staircase railings',
-      'Stainless steel, chrome & black hardware',
-      'Pool fencing & terrace glass barriers',
-      'Dubai Municipality compliant',
-    ],
-  },
-  {
-    id: '06',
-    title: 'Outdoor Pergola Structure',
-    subtitle: 'Aluminium Pergolas',
-    image: outdoorPergolaStructure,
-    bg: 'white',
-    reverse: true,
-    desc1: 'Extend your living space outdoors with a custom aluminium pergola structure — the most searched outdoor upgrade for Dubai villas, gardens, and rooftop terraces. Beat the heat with louvred roofs, retractable shade, and weather-resistant finishes.',
-    desc2: 'Our pergolas are fabricated from marine-grade aluminium, powder-coated for UV and rust resistance, and engineered to handle Dubai\'s extreme summer conditions. We offer freestanding and wall-mounted designs with optional motorized louvre roofs.',
-    features: [
-      'Motorized & manual louvre roof pergolas',
-      'Marine-grade aluminium frame',
-      'UV & weather-resistant powder coat',
-      'Freestanding & wall-mounted options',
-      'Integrated LED lighting & drainage',
-      'Villas, pools & rooftop installations',
-    ],
-  },
-  {
-    id: '07',
-    title: 'Aluminium & UPVC Doors',
-    subtitle: 'Aluminium & UPVC',
-    image: aluminiumUPVCDoorsPartition,
-    bg: 'white',
-    reverse: false,
-    desc1: 'Upgrade your property with energy-efficient aluminium and UPVC doors and windows — the most popular choice for Dubai villas, apartments, and commercial buildings seeking heat insulation, noise reduction, and long-term durability.',
-    desc2: 'We fabricate and install aluminium casement windows, UPVC sliding doors, and thermally broken frames built specifically for UAE climate conditions. Expect up to 40% reduction in heat transfer and significant savings on cooling costs.',
-    features: [
-      'Aluminium & UPVC doors and windows',
-      'Thermal break & double-glazed units',
-      'Up to 40% heat reduction performance',
-      'Noise insulation up to 42 dB',
-      'Casement, sliding & tilt-and-turn',
-      'Custom powder coat & woodgrain finishes',
-    ],
-  },
+    {
+        id: '01',
+        title: 'Office Glass Partition',
+        subtitle: 'Glass Partitions',
+        image: glassOfficePartition,
+        bg: 'white',
+        reverse: false,
+        desc1: 'Create open, light-filled workspaces with our premium office glass partition systems in Dubai. Ideal for corporate offices, co-working spaces, and commercial fit-outs — our partitions maximize natural light while maintaining acoustic privacy.',
+        desc2: 'We supply and install frameless glass partitions, aluminium-framed systems, and glass office dividers across Dubai and the UAE. All glass is toughened and tempered to meet UAE safety standards, with same-week installation available.',
+        features: [
+            'Frameless & framed glass office partitions',
+            'Floor-to-ceiling & demountable systems',
+            'Acoustic & soundproof glass options',
+            'Frosted, tinted, clear & smart glass',
+            'Custom sizing & premium hardware',
+            'UAE building code compliant',
+        ],
+    },
+    {
+        id: '02',
+        title: 'Glass Shop Front',
+        subtitle: 'Shop Front Glass',
+        image: shopFront,
+        bg: 'offwhite',
+        reverse: true,
+        desc1: 'Make a powerful first impression with a modern glass shop front that attracts customers and elevates your brand. We design and install commercial glass storefronts for retail shops, showrooms, restaurants, and business entrances across Dubai.',
+        desc2: 'Our shop front glass solutions use high-strength tempered safety glass with aluminium or frameless systems — built to withstand Dubai\'s climate while keeping your interior cool, visible, and secure. Fully customizable with automatic sliding doors.',
+        features: [
+            'Frameless & aluminium shop front systems',
+            'Automatic & manual sliding glass doors',
+            'Toughened safety & security glass',
+            'UV-resistant & heat-reflective glass',
+            'Brand-matched powder coat finishes',
+            'Retail, restaurant & showroom fit-outs',
+        ],
+    },
+    {
+        id: '03',
+        title: 'Shower Glass Partition',
+        subtitle: 'Shower Enclosures',
+        image: showerGlassPartition,
+        bg: 'white',
+        reverse: false,
+        desc1: 'Upgrade your bathroom with a sleek, frameless shower glass partition that combines luxury aesthetics with practical waterproofing. Our shower enclosures are a top choice for villas, hotels, and apartments in Dubai seeking a modern, spa-like finish.',
+        desc2: 'We fabricate and install frameless shower screens, semi-frameless enclosures, and fixed shower panels using 8mm–12mm toughened safety glass. All fittings are corrosion-resistant and certified for wet area use — fitted perfectly to your bathroom dimensions.',
+        features: [
+            'Frameless & semi-frameless shower screens',
+            '8mm & 12mm toughened safety glass',
+            'Walk-in, pivot & sliding door options',
+            'Anti-limescale easy-clean coating',
+            'Corrosion-resistant chrome & matte fittings',
+            'Custom fit for any bathroom layout',
+        ],
+    },
+    {
+        id: '04',
+        title: 'Glass Partition & Doors',
+        subtitle: 'Interior Glass Doors',
+        image: glassPartitionDoors,
+        bg: 'white',
+        reverse: true,
+        desc1: 'Divide and define interior spaces beautifully with our glass partition walls and glass doors for homes and commercial properties. Perfect for living rooms, home offices, hotel lobbies, and retail interiors — adding elegance without blocking light.',
+        desc2: 'From sliding glass room dividers to full-height glass walls with built-in doors, we handle design, fabrication, and installation across the UAE. Choose from clear, frosted, patterned, or digitally printed glass to match any interior style.',
+        features: [
+            'Sliding, pivot & hinged glass doors',
+            'Full-height glass partition walls',
+            'Frosted, patterned & printed glass',
+            'Aluminium, stainless steel & frameless',
+            'Residential & commercial interiors',
+            'Made-to-measure for any space',
+        ],
+    },
+    {
+        id: '05',
+        title: 'Glass Staircase Railing',
+        subtitle: 'Glass Railings',
+        image: glassStaircaseFencing,
+        bg: 'white',
+        reverse: false,
+        desc1: 'Transform your staircase into a striking architectural feature with frameless glass railings. Our glass balustrades and staircase railings are in high demand for Dubai villas, duplexes, and luxury apartments — delivering safety with sophisticated style.',
+        desc2: 'We install frameless glass balustrades, stainless steel post systems, and top-rail glass fencing for both indoor and outdoor staircases. All glass is 12mm–15mm toughened and laminated, engineered to meet Dubai Municipality safety codes.',
+        features: [
+            'Frameless & post-mounted glass balustrades',
+            '12mm–15mm laminated toughened glass',
+            'Indoor & outdoor staircase railings',
+            'Stainless steel, chrome & black hardware',
+            'Pool fencing & terrace glass barriers',
+            'Dubai Municipality compliant',
+        ],
+    },
+    {
+        id: '06',
+        title: 'Outdoor Pergola Structure',
+        subtitle: 'Aluminium Pergolas',
+        image: outdoorPergolaStructure,
+        bg: 'white',
+        reverse: true,
+        desc1: 'Extend your living space outdoors with a custom aluminium pergola structure — the most searched outdoor upgrade for Dubai villas, gardens, and rooftop terraces. Beat the heat with louvred roofs, retractable shade, and weather-resistant finishes.',
+        desc2: 'Our pergolas are fabricated from marine-grade aluminium, powder-coated for UV and rust resistance, and engineered to handle Dubai\'s extreme summer conditions. We offer freestanding and wall-mounted designs with optional motorized louvre roofs.',
+        features: [
+            'Motorized & manual louvre roof pergolas',
+            'Marine-grade aluminium frame',
+            'UV & weather-resistant powder coat',
+            'Freestanding & wall-mounted options',
+            'Integrated LED lighting & drainage',
+            'Villas, pools & rooftop installations',
+        ],
+    },
+    {
+        id: '07',
+        title: 'Aluminium & UPVC Doors',
+        subtitle: 'Aluminium & UPVC',
+        image: aluminiumUPVCDoorsPartition,
+        bg: 'white',
+        reverse: false,
+        desc1: 'Upgrade your property with energy-efficient aluminium and UPVC doors and windows — the most popular choice for Dubai villas, apartments, and commercial buildings seeking heat insulation, noise reduction, and long-term durability.',
+        desc2: 'We fabricate and install aluminium casement windows, UPVC sliding doors, and thermally broken frames built specifically for UAE climate conditions. Expect up to 40% reduction in heat transfer and significant savings on cooling costs.',
+        features: [
+            'Aluminium & UPVC doors and windows',
+            'Thermal break & double-glazed units',
+            'Up to 40% heat reduction performance',
+            'Noise insulation up to 42 dB',
+            'Casement, sliding & tilt-and-turn',
+            'Custom powder coat & woodgrain finishes',
+        ],
+    },
 ];
 
 const features = [
@@ -196,7 +196,7 @@ const StatItem = ({ icon, num, suffix, display, label }) => {
 //         }, 4000);
 //     };
 
-    const Home = () => {
+const Home = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -233,7 +233,7 @@ const StatItem = ({ icon, num, suffix, display, label }) => {
             if (response.ok) {
                 setSubmitted(true);
                 console.log('✅ Contact saved:', data.id);
-                
+
                 // Reset form after 5 seconds
                 setTimeout(() => {
                     setSubmitted(false);
@@ -244,7 +244,7 @@ const StatItem = ({ icon, num, suffix, display, label }) => {
                 setError(data.error || 'Failed to submit form. Please try again.');
             }
         } catch (error) {
-            
+
             console.error('❌ Error submitting form:', error);
             setError('Failed to submit form. Please check your connection and try again.');
         } finally {
@@ -404,6 +404,10 @@ const StatItem = ({ icon, num, suffix, display, label }) => {
                                         <strong>Mobile:</strong><br />
                                         <a href="tel:+971508310029">+971 50 831 0029</a>
                                     </div>
+                                    <div style={{ marginTop: "6px" }}>
+                                        <strong>Mobile:</strong><br />
+                                        <a href="tel:+971561129165">+971 56 112 9165</a>
+                                    </div>
                                 </div>
                             </div>
                             <div className={styles.ciItem}>
@@ -413,15 +417,21 @@ const StatItem = ({ icon, num, suffix, display, label }) => {
                                     <p>Behind FAB Bank, Al Khabeesi,<br />Deira, Dubai UAE</p>
                                 </div>
                             </div>
-                            <div className={styles.ciItem}>
+                            <div className={`${styles.ciItem} ${styles.whatsapp}`}>
                                 <div className={styles.ciIco}>
                                     <svg width="15" height="15" viewBox="0 0 24 24" fill="white">
                                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                                     </svg>
                                 </div>
-                                <div className={styles.ciBody}>
-                                    <span>WhatsApp</span>
-                                    <a href="https://wa.me/97143966833" target="_blank" rel="noreferrer">Chat with us now</a>
+                                <div className={styles.ciBodyWrapper}>
+                                    <div className={styles.ciBody}>
+                                        <span>WhatsApp</span>
+                                        <a href="https://wa.me/971508310029" target="_blank" rel="noreferrer">+971 50 831 0029</a>
+                                    </div>
+                                    <div className={styles.ciBody}>
+                                        <span>WhatsApp</span>
+                                        <a href="https://wa.me/971561129165" target="_blank" rel="noreferrer">+971 56 112 9165</a>
+                                    </div>
                                 </div>
                             </div>
 
@@ -439,95 +449,95 @@ const StatItem = ({ icon, num, suffix, display, label }) => {
                             </div>
                         </div>
 
-                       {/* Form */}
-<div className={styles.cformCard}>
-    <h3>Send Us a Message</h3>
-    <p>Fill in the form and we'll get back to you with a tailored quote.</p>
+                        {/* Form */}
+                        <div className={styles.cformCard}>
+                            <h3>Send Us a Message</h3>
+                            <p>Fill in the form and we'll get back to you with a tailored quote.</p>
 
-    {submitted ? (
-        <div style={{
-            backgroundColor: '#f0fdf4',
-            color: '#166534',
-            padding: '20px',
-            borderRadius: '8px',
-            border: '1px solid #bbf7d0',
-            textAlign: 'center'
-        }}>
-            <div style={{ fontSize: '24px', marginBottom: '8px' }}>✅</div>
-            <strong>Message Sent Successfully!</strong>
-            <p>Thank you for reaching out. Our team will contact you within 24 hours.</p>
-        </div>
-    ) : (
-        <form onSubmit={handleSubmit} className={styles.form}>
-            {/* Error Message Display */}
-            {error && (
-                <div style={{
-                    backgroundColor: '#fee',
-                    color: '#c33',
-                    padding: '12px',
-                    borderRadius: '4px',
-                    marginBottom: '16px',
-                    border: '1px solid #fcc'
-                }}>
-                    ⚠️ {error}
-                </div>
-            )}
+                            {submitted ? (
+                                <div style={{
+                                    backgroundColor: '#f0fdf4',
+                                    color: '#166534',
+                                    padding: '20px',
+                                    borderRadius: '8px',
+                                    border: '1px solid #bbf7d0',
+                                    textAlign: 'center'
+                                }}>
+                                    <div style={{ fontSize: '24px', marginBottom: '8px' }}>✅</div>
+                                    <strong>Message Sent Successfully!</strong>
+                                    <p>Thank you for reaching out. Our team will contact you within 24 hours.</p>
+                                </div>
+                            ) : (
+                                <form onSubmit={handleSubmit} className={styles.form}>
+                                    {/* Error Message Display */}
+                                    {error && (
+                                        <div style={{
+                                            backgroundColor: '#fee',
+                                            color: '#c33',
+                                            padding: '12px',
+                                            borderRadius: '4px',
+                                            marginBottom: '16px',
+                                            border: '1px solid #fcc'
+                                        }}>
+                                            ⚠️ {error}
+                                        </div>
+                                    )}
 
-            <div className={styles.fRow}>
-                <div className={styles.fGrp}>
-                    <label>Full Name</label>
-                    <input 
-                        type="text" 
-                        name="name"
-                        placeholder="Your name" 
-                        value={formData.name}
-                        onChange={handleChange}
-                        required 
-                    />
-                </div>
-                <div className={styles.fGrp}>
-                    <label>Email</label>
-                    <input 
-                        type="email" 
-                        name="email"
-                        placeholder="your@email.com" 
-                        value={formData.email}
-                        onChange={handleChange}
-                        required 
-                    />
-                </div>
-            </div>
-            <div className={styles.fGrp}>
-                <label>Phone Number</label>
-                <input 
-                    type="tel" 
-                    name="phone"
-                    placeholder="+971 XX XXX XXXX" 
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <div className={styles.fGrp}>
-                <label>Message</label>
-                <textarea 
-                    name="message"
-                    placeholder="Tell us about your project..."
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                />
-            </div>
-            <button 
-                type="submit" 
-                className={`${styles.btnGreen} ${styles.fSubmit}`}
-                disabled={loading}
-            >
-                {loading ? 'Sending...' : 'Send Message'}
-            </button>
-        </form>
-    )}
-</div>
+                                    <div className={styles.fRow}>
+                                        <div className={styles.fGrp}>
+                                            <label>Full Name</label>
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                placeholder="Your name"
+                                                value={formData.name}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className={styles.fGrp}>
+                                            <label>Email</label>
+                                            <input
+                                                type="email"
+                                                name="email"
+                                                placeholder="your@email.com"
+                                                value={formData.email}
+                                                onChange={handleChange}
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div className={styles.fGrp}>
+                                        <label>Phone Number</label>
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            placeholder="+971 XX XXX XXXX"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                    <div className={styles.fGrp}>
+                                        <label>Message</label>
+                                        <textarea
+                                            name="message"
+                                            placeholder="Tell us about your project..."
+                                            value={formData.message}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                    <button
+                                        type="submit"
+                                        className={`${styles.btnGreen} ${styles.fSubmit}`}
+                                        disabled={loading}
+                                    >
+                                        {loading ? 'Sending...' : 'Send Message'}
+                                    </button>
+                                </form>
+                            )}
+                        </div>
                     </div>
                 </div>
             </section>
